@@ -16,7 +16,7 @@ angular.module('controller', [])
 
 
   Instagram.get(9, "bunny").success(function(response) {
-    $scope.images=response; //IG function returns a promise, when promise is .success, , returns function as parameter
+    $scope.images=response.data; //IG function returns a promise, when promise is .success, , returns function as parameter
     console.log($scope.images);
   });
 
