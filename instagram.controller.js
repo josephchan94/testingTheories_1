@@ -13,8 +13,12 @@ angular.module('controller', [])
   var at = currentURL.slice(currentURL.indexOf('access_token'));
 	console.log(at);
 
-  $scope.images=Instagram.get(9,"string").data; //get request on the api that gets the images links
 
+
+  Instagram.get(9, "bunny").success(function(response) {
+    $scope.images=response; //IG function returns a promise, when promise is .success, , returns function as parameter
+    console.log($scope.images);
+  });
 
 }) // dont need semi colon after ctrl
 
