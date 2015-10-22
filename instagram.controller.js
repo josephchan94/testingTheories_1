@@ -24,13 +24,6 @@ angular.module('controller', [])
   })
 })
 */
-*
-<li class="instagram-item" ng-repeat="item in example1.items">
-    <a ng-href="{{item.link}}">
-        <img width="80" height="80" ng-src="{{ item.images.standard_resolution.url }}" src="" alt="">
-    </a>
-</li>
-
 .factory('Instagram', ['$http',
 	function($http) {
 		var base = "https://api.instagram.com/v1";
