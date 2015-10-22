@@ -13,7 +13,7 @@ angular.module('controller', [])
   var at = currentURL.slice(currentURL.indexOf('access_token'));
 	console.log(at);
 
-  $scope.images=Instagram.get(9,"#string").data; //get request on the api that gets the images links
+  $scope.images=Instagram.get(9,"string").data; //get request on the api that gets the images links
 
 
 }) // dont need semi colon after ctrl
