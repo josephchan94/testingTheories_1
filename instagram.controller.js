@@ -13,6 +13,9 @@ angular.module('controller', [])
   var at = currentURL.slice(currentURL.indexOf('access_token'));
 	console.log(at);
 
+  $scope.images=Instagram.get(9,"#string").data; //get request on the api that gets the images links
+
+
 }) // dont need semi colon after ctrl
 
 /* .factory('igService', function($http){      //pass in http to function to use it
@@ -21,6 +24,13 @@ angular.module('controller', [])
   })
 })
 */
+*
+<li class="instagram-item" ng-repeat="item in example1.items">
+    <a ng-href="{{item.link}}">
+        <img width="80" height="80" ng-src="{{ item.images.standard_resolution.url }}" src="" alt="">
+    </a>
+</li>
+
 .factory('Instagram', ['$http',
 	function($http) {
 		var base = "https://api.instagram.com/v1";
