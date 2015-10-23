@@ -19,6 +19,10 @@ angular.module('controller', [])
       console.log($scope.images);
     });
   };
+  $scope.likeimage = function(image) {
+    var id = image.id
+    console.log(id);
+  }
 }) // dont need semicolon after ctrl
 
 .factory('Instagram', ['$http',
@@ -37,6 +41,9 @@ function($http) {
         }
       };
       return $http.jsonp(url, config); // gets json file from the url its passed to
+    },
+    like: function(){
+      https://api.instagram.com/v1/media/{media-id}/likes
     }
   };
 }
