@@ -17,17 +17,17 @@
 <body ng-app="myApp" ng-controller="igCtrl">
   <div ng-view></div>
   <a href="{{auth0}}"><div class="btn btn-default" ng-click="loggedin()"></div></a> <!-- pass in logged in to button -->
+  <div class="btn btn-default" ng-click="updatePhotosHashtag()">
+  </div>
   <div>
     <div class="input-group">
       <span class="input-group-addon" id="basic-addon1">Hashtag</span>
       <input ng-model="hashtag" type="text" class="form-control" placeholder="bunny" aria-describedby="basic-addon1">
     </div>
-
     <div class="input-group">
       <span class="input-group-addon" id="basic-addon1">#photos</span>
       <input ng-model="numPhotos" type="text" class="form-control" placeholder="10" aria-describedby="basic-addon1">
     </div>
-
   </div>
 
   <!-- In production use:
