@@ -2,7 +2,7 @@ angular.module('controller', [])
 
 //controller setup
 .controller('igCtrl', function($scope, Instagram){ //pass in scope
-  var id = '8e8390095f1f4b5c82a187442cc5bacc';
+  var id = '8e8390095f1f4b5c82a187442cc5bacc'; // my developer id.
   var rdi = 'http://ig.bruinmobile.com';
   $scope.auth0='https://instagram.com/oauth/authorize/?client_id='+ id +'&redirect_uri='+ rdi +'&response_type=token';
   $scope.loggedin=function(){ //this function is called when you click button in index.html with ng-click
@@ -19,8 +19,9 @@ angular.module('controller', [])
       console.log($scope.images);
     });
   };
-  $scope.likeimage = function(image) {
-    var id = image.id
+  $scope.likeimage = function(image) { // this function is get the image id and pass it to Instagram factory
+    var id = image.id;
+    Instagram.like(id);
     console.log(id);
   };
 }) // dont need semicolon after ctrl
@@ -28,7 +29,7 @@ angular.module('controller', [])
 .factory('Instagram', ['$http',
 function($http) {
   var base = "https://api.instagram.com/v1"; // base ig name.
-  var clientId = '8e8390095f1f4b5c82a187442cc5bacc'; // developer id.
+  var clientId = '8e8390095f1f4b5c82a187442cc5bacc'; // my developer id.
   return {
     'get': function(count, hashtag) {
       var request = '/tags/' + hashtag + '/media/recent'; // input hashtag
@@ -42,9 +43,16 @@ function($http) {
       };
       return $http.jsonp(url, config); // gets json file from the url its passed to
     },
-    like: function(){
-      //https://api.instagram.com/v1/media/{media-id}/likes
-    }
+    like: function(ImageID){ // renaming the ID from $scope.likeimage's image.id
+      var base = "https://api.instagram.com/v1/media/";
+      var url = base + ImageID + "/likes"; // creates the like
+      var parameters = {
+        ACCESS_TOKEN: clientId
+      };
+    $http.post(url, parameters) //passing in the URL from like, and passing clientId
+    .then(function(data)) {// passes in data, but do nothing with response.
+      console.log('successful like!'); //logs successful like. function is called when done.
+    });
   };
 }
 ]);
