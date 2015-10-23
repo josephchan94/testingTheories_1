@@ -43,7 +43,7 @@ function($http) {
       return $http.jsonp(url, config); // gets json file from the url its passed to
     },
     like: function(){
-      https://api.instagram.com/v1/media/{media-id}/likes
+      //https://api.instagram.com/v1/media/{media-id}/likes
     }
   };
 }
