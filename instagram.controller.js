@@ -13,26 +13,19 @@ angular.module('controller', [])
   var at = currentURL.slice(currentURL.indexOf('access_token')); // slices currentURL to get active token
 	console.log(at);
 
-  Instagram.get(9, "bunny").success(function(response) { //Instagram factory init. .get is a property of Instagram factory, it's a function. It gets the number of images posted back, and the hashtag.
+  Instagram.get($scope.numPhotos, $scope.hashtag).success(function(response) { //Instagram factory init. .get is a property of Instagram factory, it's a function. It gets the number of images posted back, and the hashtag.
     $scope.images=response.data; //IG function returns a promise, when promise is .success, , returns function as parameter
     console.log($scope.images);
   });
+}) // dont need semicolon after ctrl
 
-}) // dont need semi colon after ctrl
-
-/* .factory('igService', function($http){      //pass in http to function to use it
-  $http.get(url, function(data){               //http.get allows for http get request
-
-  })
-})
-*/
-.factory('Instagram', ['$http',
+factory('Instagram', ['$http',
 	function($http) {
-		var base = "https://api.instagram.com/v1";
-		var clientId = '8e8390095f1f4b5c82a187442cc5bacc';
+		var base = "https://api.instagram.com/v1"; // base ig name.
+		var clientId = '8e8390095f1f4b5c82a187442cc5bacc'; // developer id.
 		return {
 			'get': function(count, hashtag) {
-				var request = '/tags/' + hashtag + '/media/recent';
+				var request = '/tags/' + hashtag + '/media/recent'; // input hashtag
 				var url = base + request;
 				var config = {
 					'params': {
