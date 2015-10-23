@@ -55,7 +55,7 @@ function($http) {
     });
   }
 };
-]);
+}]);
 
 // <input type = "text" ng-model = "variablename">
 // variable can accessed to a $scope.variablename
