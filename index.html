@@ -19,8 +19,13 @@
   <a href="{{auth0}}"><div class="btn btn-default" ng-click="loggedin()"></div></a> <!-- pass in logged in to button -->
   <div>
     <div class="input-group">
-      <span ng-model="hashtag" class="input-group-addon" id="basic-addon1">Hashtag</span>
-      <input ng-model="numPhotos" type="text" class="form-control" placeholder="bunny" aria-describedby="basic-addon1">
+      <span class="input-group-addon" id="basic-addon1">Hashtag</span>
+      <input ng-model="hashtag" type="text" class="form-control" placeholder="bunny" aria-describedby="basic-addon1">
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">#photos</span>
+      <input ng-model="numPhotos" type="text" class="form-control" placeholder="10" aria-describedby="basic-addon1">
     </div>
 
   </div>
