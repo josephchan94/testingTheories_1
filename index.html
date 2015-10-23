@@ -31,6 +31,7 @@
     </div>
 
     <li ng-repeat="image in images">
+      <button type="button" class="btn btn-default" ng-click="likeimage(image)"></button> <!-- passing image into like image function in order to get the ID -->
       <a ng-href="{{image.link}}">
         <img width="80" height="80" ng-src="{{ image.images.standard_resolution.url }}" src="" alt="">
       </a>
