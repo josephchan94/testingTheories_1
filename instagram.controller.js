@@ -58,7 +58,7 @@ function($http, alltheIDs) { // alltheIDs is a variable
   var accesstoken = currentURL.slice(currentURL.indexOf('access_token')); // slices currentURL to get access token
   console.log(accesstoken);
   return{
-    clientid: clientid, accesstoken:at // accesstoken is grabbing from at. clientid is pulling from the var on line 56.
+    clientid: clientid, accesstoken: accesstoken // accesstoken is grabbing from at. clientid is pulling from the var on line 56.
   }
 }
 
