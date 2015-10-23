@@ -54,7 +54,7 @@ function($http) {
       console.log('successful like!'); //logs successful like. function is called when done.
     });
   }
-}
+};
 ]);
 
 // <input type = "text" ng-model = "variablename">
