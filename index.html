@@ -17,22 +17,30 @@
 <body ng-app="myApp" ng-controller="igCtrl">
   <div ng-view></div>
   <a href="{{auth0}}">
-  <button type="button" class="btn btn-default" ng-click="loggedin()">Login</button></a> <!-- pass in logged in to button -->
-  <button type="button" class="btn btn-default" ng-click="updatePhotosHashtag()">Update</button>
-  <div class="input-group">
-    <span class="input-group-addon" id="basic-addon1">Hashtag</span>
-    <input ng-model="hashtag" type="text" class="form-control" placeholder="bunny" aria-describedby="basic-addon1">
-  </div>
-  <div class="input-group">
-    <span class="input-group-addon" id="basic-addon1">#photos</span>
-    <input ng-model="numPhotos" type="text" class="form-control" placeholder="10" aria-describedby="basic-addon1">
-  </div>
+    <button type="button" class="btn btn-default" ng-click="loggedin()">Login</button></a> <!-- pass in logged in to button -->
 
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="instagram.controller.js"></script>
-  <script src="app.js"></script>
-  <script src="view1/view1.js"></script>
-  <script src="view2/view2.js"></script>
-</body>
-</html>
+    <li ng-repeat="image in images">
+      <a ng-href="{{image.link}}">
+        <img width="80" height="80" ng-src="{{ image.images.standard_resolution.url }}" src="" alt="">
+      </a>
+    </li>
+
+    <br> <br>
+    <button type="button" class="btn btn-default" ng-click="updatePhotosHashtag()">Update</button> <!-- updates the photos -->
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">Hashtag</span>
+      <input ng-model="hashtag" type="text" class="form-control" placeholder="bunny" aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">#photos</span>
+      <input ng-model="numPhotos" type="text" class="form-control" placeholder="10" aria-describedby="basic-addon1">
+    </div>
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="instagram.controller.js"></script>
+    <script src="app.js"></script>
+    <script src="view1/view1.js"></script>
+    <script src="view2/view2.js"></script>
+  </body>
+  </html>
