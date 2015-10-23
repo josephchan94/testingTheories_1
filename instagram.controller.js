@@ -7,7 +7,8 @@ angular.module('controller', [])
   $scope.loggedin=function(){ //this function is called when you click button in index.html with ng-click
     console.log('loggedin');
   }
-
+  if(!alltheIDs.accesstoken)
+    return;
   $scope.updatePhotosHashtag = function() {
     Instagram.get($scope.numPhotos, $scope.hashtag).success(function(response) { //Instagram factory init. .get is a property of Instagram factory, it's a function. It gets the number of images posted back, and the hashtag.
     $scope.images=response.data; //IG function returns a promise, when promise is .success, , returns function as parameter
@@ -21,7 +22,7 @@ $scope.likeimage = function(image) { // this function is get the image id and pa
 };
 }) // dont need semicolon after ctrl
 
-.factory('Instagram', ['$http', 'alltheIDs', // alltheIDs is a string here
+.factory('Instagram', ['$http', 'alltheIDs' // alltheIDs is a string here
 function($http, alltheIDs) { // alltheIDs is a variable
   var base = "https://api.instagram.com/v1"; // base ig name.
   var clientId = '8e8390095f1f4b5c82a187442cc5bacc'; // my developer id.
@@ -54,7 +55,7 @@ function($http, alltheIDs) { // alltheIDs is a variable
 .factory('alltheIDs', function(){
   var clientid = '8e8390095f1f4b5c82a187442cc5bacc';
   var currentURL = window.location.href; //grabs the current url and puts it in var currentURL
-    var accesstoken = currentURL.slice(currentURL.indexOf('access_token')); // slices currentURL to get access token
+  var accesstoken = currentURL.slice(currentURL.indexOf('access_token')); // slices currentURL to get access token
   console.log(accesstoken);
   return{
     clientid: clientid, accesstoken:at // accesstoken is grabbing from at. clientid is pulling from the var on line 56.
