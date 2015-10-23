@@ -15,15 +15,15 @@ angular.module('controller', [])
 
   $scope.updatePhotosHashtag = function() {
     Instagram.get($scope.numPhotos, $scope.hashtag).success(function(response) { //Instagram factory init. .get is a property of Instagram factory, it's a function. It gets the number of images posted back, and the hashtag.
-      $scope.images=response.data; //IG function returns a promise, when promise is .success, , returns function as parameter
-      console.log($scope.images);
-    });
-  };
-  $scope.likeimage = function(image) { // this function is get the image id and pass it to Instagram factory
-    var id = image.id;
-    Instagram.like(id);
-    console.log(id);
-  };
+    $scope.images=response.data; //IG function returns a promise, when promise is .success, , returns function as parameter
+    console.log($scope.images);
+  });
+};
+$scope.likeimage = function(image) { // this function is get the image id and pass it to Instagram factory
+  var id = image.id;
+  Instagram.like(id);
+  console.log(id);
+};
 }) // dont need semicolon after ctrl
 
 .factory('Instagram', ['$http',
@@ -44,16 +44,16 @@ function($http) {
       return $http.jsonp(url, config); // gets json file from the url its passed to
     },
     like: function(ImageID){ // renaming the ID from $scope.likeimage's image.id
-      var base = "https://api.instagram.com/v1/media/";
-      var url = base + ImageID + "/likes"; // creates the like
-      var parameters = {
-        ACCESS_TOKEN: clientId
-      };
+    var base = "https://api.instagram.com/v1/media/";
+    var url = base + ImageID + "/likes"; // creates the like
+    var parameters = {
+      ACCESS_TOKEN: clientId
+    };
     $http.post(url, parameters) //passing in the URL from like, and passing clientId
     .then(function(data) {// passes in data, but do nothing with response.
       console.log('successful like!'); //logs successful like. function is called when done.
     });
-  };
+  }
 }
 ]);
 
