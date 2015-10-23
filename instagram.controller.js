@@ -21,7 +21,7 @@ $scope.likeimage = function(image) { // this function is get the image id and pa
 };
 }) // dont need semicolon after ctrl
 
-.factory('Instagram', ['$http', 'alltheIDs' // alltheIDs is a string here
+.factory('Instagram', ['$http', 'alltheIDs', // alltheIDs is a string here
 function($http, alltheIDs) { // alltheIDs is a variable
   var base = "https://api.instagram.com/v1"; // base ig name.
   var clientId = '8e8390095f1f4b5c82a187442cc5bacc'; // my developer id.
