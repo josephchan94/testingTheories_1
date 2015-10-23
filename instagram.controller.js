@@ -22,7 +22,7 @@ angular.module('controller', [])
   $scope.likeimage = function(image) {
     var id = image.id
     console.log(id);
-  }
+  };
 }) // dont need semicolon after ctrl
 
 .factory('Instagram', ['$http',
