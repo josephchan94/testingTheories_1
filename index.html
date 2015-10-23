@@ -17,11 +17,14 @@
 <body ng-app="myApp" ng-controller="igCtrl">
   <div ng-view></div>
   <a href="{{auth0}}"><div class="btn btn-default" ng-click="loggedin()"></div></a> <!-- pass in logged in to button -->
-  <li ng-repeat="image in images">
-    <a ng-href="{{image.link}}">
-      <img width="80" height="80" ng-src="{{ image.images.standard_resolution.url }}" src="" alt="">
-    </a>
-  </li>
+  <div>
+    <div class="input-group">
+      <span ng-model="hashtag" class="input-group-addon" id="basic-addon1">Hashtag</span>
+      <input ng-model="numPhotos" type="text" class="form-control" placeholder="bunny" aria-describedby="basic-addon1">
+    </div>
+
+  </div>
+
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
 -->
