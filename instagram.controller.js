@@ -50,7 +50,7 @@ function($http) {
         ACCESS_TOKEN: clientId
       };
     $http.post(url, parameters) //passing in the URL from like, and passing clientId
-    .then(function(data)) {// passes in data, but do nothing with response.
+    .then(function(data) {// passes in data, but do nothing with response.
       console.log('successful like!'); //logs successful like. function is called when done.
     });
   };
